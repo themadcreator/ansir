@@ -13,7 +13,7 @@ if require.main is module then do ->
     .option('-s, --scale <float>', 'Proportionally rescale image')
     .option('-w, --width <pixels>', 'Target output width (in characters)')
     .option('-h, --height <pixels>', 'Target output height (in lines)')
-    .option('--colors <colorspace>', '''
+    .option('--colors <basic|extended>', '''
 \n      The ANSI colorspace. Use "basic" for the most compatible 8-color
       palette. The default is "extended" for the 256-color palette supported by
       most major terminals that have any color at all.''', 'extended')
@@ -23,7 +23,7 @@ if require.main is module then do ->
       shaded UTF-8 block characters. Default is "dark", which means we
       interpret a shaded block character as darker than a solid one.''',
       'dark')
-    .option('--alpha-cutoff <integer>', '''
+    .option('--alpha-cutoff <float>', '''
 \n      The minimum alpha value of a pixel that should be converted to a
       ansi color utf-8 block character. Valid values are 0.0-1.0. Default is 0.95.''', '0.95')
     .option('--alpha-bleed <integer>', '''

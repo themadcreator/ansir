@@ -42,7 +42,7 @@ Supports both the basic and extended ANSI color escape sequences. Note: Full 24-
     -s, --scale <float>        Proportionally rescale image
     -w, --width <pixels>       Target output width (in characters)
     -h, --height <pixels>      Target output height (in lines)
-    --colors <colorspace>
+    --colors <basic|extended>
           The ANSI colorspace. Use "basic" for the most compatible 8-color
           palette. The default is "extended" for the 256-color palette supported by
           most major terminals that have any color at all.
@@ -51,7 +51,7 @@ Supports both the basic and extended ANSI color escape sequences. Note: Full 24-
           will have a light or dark background. This determines color matching for
           shaded UTF-8 block characters. Default is "dark", which means we
           interpret a shaded block character as darker than a solid one.
-    --alpha-cutoff <integer>
+    --alpha-cutoff <float>
           The minimum alpha value of a pixel that should be converted to a
           ansi color utf-8 block character. Valid values are 0.0-1.0. Default is 0.95.
     --alpha-bleed <integer>
