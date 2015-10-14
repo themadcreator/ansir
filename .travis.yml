@@ -1,5 +1,5 @@
 os:
-  - linux
+- linux
 sudo: false
 language: node_js
 node_js: stable
@@ -10,4 +10,11 @@ env:
   - TRAVIS_NODE_VERSION="4"
 notifications:
   email:
-    - themadcreator@themadcreator.com
+  - themadcreator@themadcreator.com
+deploy:
+  provider: npm
+  email: "themadcreator@themadcreator.com"
+  api_key:
+    secure: O61g+YuovAf6MEe7KOXePxnvXn4x+TIFEwA0/rpK1zMWkc8M2SumEex6juGrrr+nqXuNzuf7qP32j0o+/1mtF0GTahg/hABtkFmbNueO0VbOY4hPHy9vXfGVx06SiPXNBLsqBr77Iu1qgKN2ECUa0+8VfB2u7N+Ju970or9fktbHfj2cXZmBZ0GDNp/JuDWSou7dx+d/u0bakZIpEpk6aOf+hPiegbsUkkxb+81NtpSj2q8V3F8BCYFS0FoayesC7IVgwsGv0GzXlxEZzQT6xfcrogkCehQKWoUymhtfNJNoU/7dTARhMQ88tGmtPMAnSLanbinNDEp2+KxrmZwTjkrNS9YdpfPzL8uDWDybZQ6JigXccyG2LA8KGQZtn+EY4qkn5SKytxtxwNOhNZJwq/s7FCTgBOftV+8TlW2i/do40+bz9pPmdC9mNgcvj6frQiDPeugaGSv0/sgapYwmOtKMsU+xseNKZT65wu0jaBjBbvkZactqs7rXlNlDcqXHFzK3iyEYe+gbNwmOBckK3YY/+T1yR6Xe6wd7cAH2f03CcTpC48j0bGWfe6uKlGw9IVT2W0VSAr5/0Bdqj0eHOVFU1Po5RIK6adSEj1DVaTJUxuqdjUCKstl5Brqi8e6M1tX8yfWbNq90QBjV1fQroS9nDAI3cxNMHAdz9NV3VeA=
+  on:
+    tags: true

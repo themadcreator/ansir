@@ -19,7 +19,10 @@
     "ansir" : "ansir.coffee"
   },
   "scripts"  : {
-    "test" : "mocha test"
+    "test"       : "mocha test",
+    "predeploy"  : "npm test",
+    "deploy"     : "npm version minor -m \"Update version to %s\" ",
+    "postdeploy" : "git push && git push --tags"
   },
   "dependencies" : {
     "bluebird"      : ">=2.x.x",
