@@ -47,13 +47,16 @@ Supports both the basic and extended ANSI color escape sequences. Note: Full 24-
           palette. The default is "extended" for the 256-color palette supported by
           most major terminals that have any color at all.
     --background <light|dark>
-          Specifies whether the target terminal will have a light or dark
-          background. This determines color matching for shaded UTF-8 block
-          characters. Default is "dark", which means we interpret a shaded block
-          character as darker than a solid one.
+          Applies only to "shaded" mode. Specifies whether the target terminal
+          will have a light or dark background. This determines color matching for
+          shaded UTF-8 block characters. Default is "dark", which means we
+          interpret a shaded block character as darker than a solid one.
     --alpha-cutoff <integer>
           The minimum alpha value of a pixel that should be converted to a
-          ansi color utf-8 block character. Valid values are 0-255. Default is 100.
+          ansi color utf-8 block character. Valid values are 0.0-1.0. Default is 0.95.
+    --alpha-bleed <integer>
+          Applies only to "sub" mode. Adjusts how strongly we fix anti-aliased
+          transparency fuzz.
     --mode <block|shaded|sub>
           The rendering mode. Default is "block". The options are:
 
