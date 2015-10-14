@@ -1,39 +1,39 @@
 {
-  "name"        : "ansir",
-  "version"     : "0.1.0",
-  "description" : "Convert PNGs to colorful terminal ANSI art",
-  "keywords"    : [
+  "name": "ansir",
+  "version": "0.2.0",
+  "description": "Convert PNGs to colorful terminal ANSI art",
+  "keywords": [
     "png",
     "ansi",
     "terminal",
     "color"
   ],
-  "author"     : "Bill Dwyer <themadcreator@github>",
-  "license"    : "Apache-2.0",
-  "repository" : {
-    "type" : "git",
-    "url"  : "git+https://github.com/themadcreator/ansir.git"
+  "author": "Bill Dwyer <themadcreator@github>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themadcreator/ansir.git"
   },
-  "homepage" : "https://themadcreator.github.com/ansir",
-  "bin" : {
-    "ansir" : "ansir.coffee"
+  "homepage": "https://themadcreator.github.com/ansir",
+  "bin": {
+    "ansir": "ansir.coffee"
   },
-  "scripts"  : {
-    "test"       : "mocha test",
-    "predeploy"  : "npm test",
-    "deploy"     : "npm version minor -m \"Update version to %s\" ",
-    "postdeploy" : "git push && git push --tags"
+  "scripts": {
+    "test": "mocha test",
+    "predeploy": "npm test",
+    "deploy": "npm version minor -m \"Update version to %s\" ",
+    "postdeploy": "git push && git push --tags"
   },
-  "dependencies" : {
-    "bluebird"      : ">=2.x.x",
-    "chroma-js"     : ">=1.x.x",
-    "coffee-script" : ">=1.x.x",
-    "commander"     : ">=2.x.x",
-    "lodash"        : ">=3.x.x",
-    "pngjs"         : ">=0.4.x"
+  "dependencies": {
+    "bluebird": ">=2.x.x",
+    "chroma-js": ">=1.x.x",
+    "coffee-script": ">=1.x.x",
+    "commander": ">=2.x.x",
+    "lodash": ">=3.x.x",
+    "pngjs": ">=0.4.x"
   },
-  "devDependencies" : {
-    "chai"  : ">=2.x.x",
-    "mocha" : ">=2.3.x"
+  "devDependencies": {
+    "chai": ">=2.x.x",
+    "mocha": ">=2.3.x"
   }
 }
