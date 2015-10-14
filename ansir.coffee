@@ -1,4 +1,4 @@
-#!/usr/bin/env ./node_modules/.bin/coffee
+#!/usr/bin/env coffee
 
 png       = require './src/png'
 configure = require './src/config'

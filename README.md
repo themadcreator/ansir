@@ -11,7 +11,7 @@ Supports both the basic and extended ANSI color escape sequences. Note: Full 24-
 
 ### Installation
 
-    npm install -g ansir
+    npm install -g ansir coffee-script
 
 ### Generate artwork
 
