@@ -1,6 +1,8 @@
 
 # ANSIR
 
+[![Build Status](https://travis-ci.org/themadcreator/ansir.svg?branch=master)](https://travis-ci.org/themadcreator/ansir)
+
 Generate UTF-8 Art from PNG using ANSI color codes.
 
 Similar to oldschool ANSI art, we use UTF-8 block characters and standard terminal color escape sequences.
