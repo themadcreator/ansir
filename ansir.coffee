@@ -61,3 +61,4 @@ if require.main is module then do ->
     )
 
   commander.parse(process.argv)
+
