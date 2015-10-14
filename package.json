@@ -24,7 +24,7 @@
     "deploy": "npm version minor -m \"Update version to %s\" ",
     "postdeploy": "git push && git push --tags",
     "predeploy_patch": "npm test",
-    "deploy_patch": "npm version minor -m \"Update version to %s\" ",
+    "deploy_patch": "npm version patch -m \"Update version to %s\" ",
     "postdeploy_patch": "git push && git push --tags"
   },
   "dependencies": {
