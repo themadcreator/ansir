@@ -11,7 +11,7 @@ Supports both the basic and extended ANSI color escape sequences. Note: Full 24-
 
 ### Installation
 
-    npm install -g ansir coffee-script
+    npm install -g ansir
 
 ### Generate artwork
 
@@ -30,6 +30,14 @@ Supports both the basic and extended ANSI color escape sequences. Note: Full 24-
 #### Output (10% scale)
 
 ![output](sample/out.png?raw=true)
+
+### Renderers
+
+Ansir supports 3 modes of rendering, shown in the following table:
+
+| Block | Shaded | Sub |
+|-------|--------|-----|
+|![block](sample/render-block.png?raw=true)|![shaded](sample/render-shaded.png?raw=true)|![sub](sample/render-sub.png?raw=true)|
 
 ### Usage
 

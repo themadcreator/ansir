@@ -14,15 +14,15 @@ class SubBlockColorTable
     '\u2588' # █ FULL BLOCK
   ]
 
-  constructor : ->
+  constructor : (@config) ->
     @tree = new Octree()
-    for ansiCode in CONFIG.ansiCodes
+    for ansiCode in @config.ansiCodes
       @tree.insert new Octree.Point(ansiCode.color.lab()...), ansiCode
     return
 
   getTransparentDistance : (colors) ->
     return colors
-      .map((c) -> if c.alpha() < CONFIG.alphaCutoff then 0 else 100)
+      .map((c) => if c.alpha() < @config.alphaCutoff then 0 else 100)
       .reduce((a, b) -> a + b)
 
   getNearestColor : (colors) ->
@@ -34,7 +34,6 @@ class SubBlockColorTable
 
     # Compare to transparent
     transparentDistance = @getTransparentDistance(colors)
-    # nearest.distance += transparentDistance
     if transparentDistance is 0
       return {
         distance : transparentDistance
@@ -93,10 +92,8 @@ class SubBlockColorTable
       char : best.char
     }
 
-CONFIG = null
 render = (image, config) ->
-  CONFIG = config
-  colorTable = new SubBlockColorTable()
+  colorTable = new SubBlockColorTable(config)
 
   # Since we go by 2, we have to end on an even index
   maxX = image.width - (image.width % 2)
@@ -112,8 +109,8 @@ render = (image, config) ->
       ]
       line.push colorTable.getNearest(pixels)
 
-    process.stdout.write ansi.joinLineEscapes(line) + '\n'
-  process.stdout.write ansi.ANSI_RESET
+    config.write ansi.joinLineEscapes(line) + '\n'
+  config.write ansi.ANSI_RESET
   return
 
 module.exports = {render}

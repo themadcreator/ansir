@@ -20,11 +20,14 @@ configure = (options) ->
 
   alphaCutoff = parseFloat(options.alphaCutoff)
 
+  write = (str) -> process.stdout.write(str)
+
   return {
     ansiCodes
     terminalBackground
     alphaCutoff
     renderer
+    write
   }
 
 

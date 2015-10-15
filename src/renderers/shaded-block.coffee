@@ -10,12 +10,12 @@ class ColorTable
     '\u2588' # █ FULL BLOCK
   ]
 
-  constructor : () ->
+  constructor : (@config) ->
     @tree = new Octree()
-    for ansiCode in CONFIG.ansiCodes
+    for ansiCode in @config.ansiCodes
       for blockChar, i in ColorTable.UTF8_SHADED_BLOCK_CHARS
         opacity = (i + 1) / 4.0
-        color = chroma.mix(CONFIG.terminalBackground, ansiCode.color, opacity, 'hsl')
+        color = chroma.mix(@config.terminalBackground, ansiCode.color, opacity, 'hsl')
         entry = {
           blockChar
           ansiCode
@@ -27,13 +27,11 @@ class ColorTable
   # We insert all the colors in the color table into an octree so that nearest
   # neighbor searches are very fast.
   getNearest : (color) ->
-    if color.alpha() < CONFIG.alphaCutoff then return null
+    if color.alpha() < @config.alphaCutoff then return null
     return @tree.nearest(new Octree.Point(color.lab()...)).value
 
-CONFIG = null
 render = (image, config) ->
-  CONFIG = config
-  colorTable = new ColorTable()
+  colorTable = new ColorTable(config)
 
   for y in [0..image.height]
     line = []
@@ -52,8 +50,8 @@ render = (image, config) ->
           bg   : null
         }
 
-    process.stdout.write ansi.joinLineEscapes(line) + '\n'
-  process.stdout.write ansi.ANSI_RESET
+    config.write ansi.joinLineEscapes(line) + '\n'
+  config.write ansi.ANSI_RESET
   return
 
 module.exports = {render}

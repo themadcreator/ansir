@@ -14,9 +14,10 @@
     "type": "git",
     "url": "git+https://github.com/themadcreator/ansir.git"
   },
-  "homepage": "https://themadcreator.github.com/ansir",
+  "homepage": "https://www.npmjs.com/package/ansir",
+  "main" : "ansir-api.js",
   "bin": {
-    "ansir": "ansir.coffee"
+    "ansir": "ansir-cli.js"
   },
   "scripts": {
     "test": "mocha test",

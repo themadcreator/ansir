@@ -3,22 +3,20 @@ ansi   = require '../ansi-codes'
 Octree = require '../octree'
 
 class ColorTable
-  constructor : () ->
+  constructor : (@config) ->
     @tree = new Octree()
-    for ansiCode in CONFIG.ansiCodes
+    for ansiCode in @config.ansiCodes
       @tree.insert new Octree.Point(ansiCode.color.lab()...), ansiCode
 
   # Finds the nearest color by using euclidean distance in CIELAB colorspace.
   # We insert all the colors in the color table into an octree so that nearest
   # neighbor searches are very fast.
   getNearest : (color) ->
-    if color.alpha() < CONFIG.alphaCutoff then return null
+    if color.alpha() < @config.alphaCutoff then return null
     return @tree.nearest(new Octree.Point(color.lab()...)).value.bg
 
-CONFIG = null
 render = (image, config) ->
-  CONFIG = config
-  colorTable = new ColorTable()
+  colorTable = new ColorTable(config)
 
   for y in [0..image.height]
     line = []
@@ -29,8 +27,8 @@ render = (image, config) ->
         fg   : null
         bg   : color
       }
-    process.stdout.write ansi.joinLineEscapes(line) + '\n'
-  process.stdout.write ansi.ANSI_RESET
+    config.write ansi.joinLineEscapes(line) + '\n'
+  config.write ansi.ANSI_RESET
   return
 
 module.exports = {render}
