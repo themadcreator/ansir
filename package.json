@@ -1,6 +1,6 @@
 {
   "name": "ansir",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Convert PNGs to colorful terminal ANSI art",
   "keywords": [
     "png",
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/themadcreator/ansir.git"
   },
   "homepage": "https://www.npmjs.com/package/ansir",
-  "main" : "ansir-api.js",
+  "main": "ansir-api.js",
   "bin": {
     "ansir": "ansir-cli.js"
   },
