@@ -18,7 +18,7 @@ createRescaledImage = (png, options) ->
   y      = (i) -> i
   
   # since block chars are half as wide as tall
-  charHeight = options.renderer.charHeight ? 2
+  charHeight = options.renderer?.charHeight ? 2
 
   if options.scale?
     s      = parseFloat options.scale
