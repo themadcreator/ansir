@@ -1,5 +1,6 @@
 chroma = require 'chroma-js'
 ansi   = require './ansi-codes'
+_      = require 'lodash'
 
 configure = (options) ->
   ansiCodes = switch options.colors
@@ -13,22 +14,22 @@ configure = (options) ->
     else throw new Error("Unknown background option #{options.background}")
 
   renderer = switch options.mode
-    when 'block'  then require './renderers/block'
-    when 'shaded' then require './renderers/shaded-block'
-    when 'sub'    then require './renderers/sub-block'
+    when 'block'   then require './renderers/block'
+    when 'shaded'  then require './renderers/shaded-block'
+    when 'sub'     then require './renderers/sub-block'
+    when 'braille' then require './renderers/braille'
     else throw new Error("Unknown mode option #{options.mode}")
 
   alphaCutoff = parseFloat(options.alphaCutoff)
 
   write = (str) -> process.stdout.write(str)
 
-  return {
+  return _.extend options, {
     ansiCodes
     terminalBackground
     alphaCutoff
     renderer
     write
   }
-
 
 module.exports =configure

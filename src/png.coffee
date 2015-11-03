@@ -16,10 +16,13 @@ createRescaledImage = (png, options) ->
   height = png.height
   x      = (i) -> i
   y      = (i) -> i
+  
+  # since block chars are half as wide as tall
+  charHeight = options.renderer.charHeight ? 2
 
   if options.scale?
     s      = parseFloat options.scale
-    sx     = s * 2 # since block chars are half as wide as tall
+    sx     = s * charHeight 
     sy     = s
     width  = Math.floor(png.width * sx)
     height = Math.floor(png.height * sy)

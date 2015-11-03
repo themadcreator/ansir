@@ -87,6 +87,9 @@ joinLineEscapes = (line) ->
 
     s += pixel.char
 
+  if lastBg isnt null or lastFg isnt null
+    s += ANSI_RESET
+
   return s
 
 module.exports = {
