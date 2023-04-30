@@ -3,8 +3,7 @@ configure = require './src/config'
 commander = require 'commander'
 
 commander
-  .usage('<png>')
-  .description('Generate UTF-8 Art from PNG using ANSI color codes.')
+  .arguments('<pngPath>')
   .option('-s, --scale <float>', 'Proportionally rescale image')
   .option('-w, --width <integer>', 'Target output width (in characters)')
   .option('-h, --height <integer>', 'Target output height (in lines)')
@@ -45,24 +44,11 @@ commander
       █ FULL BLOCK
 
     "braille" - Use the ANSI foreground escape sequence on unicode braille.
-                https://en.wikipedia.org/wiki/Braille_Patterns#Chart
-      ⡀ ⡁ ⡂ ⡃ ⡄ ⡅ ⡆ ⡇ ⡈ ⡉ ⡊ ⡋ ⡌ ⡍ ⡎ ⡏
-      ⡐ ⡑ ⡒ ⡓ ⡔ ⡕ ⡖ ⡗ ⡘ ⡙ ⡚ ⡛ ⡜ ⡝ ⡞ ⡟
-      ⡠ ⡡ ⡢ ⡣ ⡤ ⡥ ⡦ ⡧ ⡨ ⡩ ⡪ ⡫ ⡬ ⡭ ⡮ ⡯
-      ⡰ ⡱ ⡲ ⡳ ⡴ ⡵ ⡶ ⡷ ⡸ ⡹ ⡺ ⡻ ⡼ ⡽ ⡾ ⡿
-      ⢀ ⢁ ⢂ ⢃ ⢄ ⢅ ⢆ ⢇ ⢈ ⢉ ⢊ ⢋ ⢌ ⢍ ⢎ ⢏
-      ⢐ ⢑ ⢒ ⢓ ⢔ ⢕ ⢖ ⢗ ⢘ ⢙ ⢚ ⢛ ⢜ ⢝ ⢞ ⢟
-      ⢠ ⢡ ⢢ ⢣ ⢤ ⢥ ⢦ ⢧ ⢨ ⢩ ⢪ ⢫ ⢬ ⢭ ⢮ ⢯
-      ⢰ ⢱ ⢲ ⢳ ⢴ ⢵ ⢶ ⢷ ⢸ ⢹ ⢺ ⢻ ⢼ ⢽ ⢾ ⢿
-      ⣀ ⣁ ⣂ ⣃ ⣄ ⣅ ⣆ ⣇ ⣈ ⣉ ⣊ ⣋ ⣌ ⣍ ⣎ ⣏
-      ⣐ ⣑ ⣒ ⣓ ⣔ ⣕ ⣖ ⣗ ⣘ ⣙ ⣚ ⣛ ⣜ ⣝ ⣞ ⣟
-      ⣠ ⣡ ⣢ ⣣ ⣤ ⣥ ⣦ ⣧ ⣨ ⣩ ⣪ ⣫ ⣬ ⣭ ⣮ ⣯
-      ⣰ ⣱ ⣲ ⣳ ⣴ ⣵ ⣶ ⣷ ⣸ ⣹ ⣺ ⣻ ⣼ ⣽ ⣾ ⣿
-
+                https://en.wikipedia.org
 ''', 'block')
   .action((pngPath, options) ->
     config = configure(options)
-    png.loadPng(options.args[0]).then((pngObj) ->
+    png.loadPng(pngPath).then((pngObj) ->
       image = png.createRescaledImage(pngObj, config)
       config.renderer.render(image, config)
     )

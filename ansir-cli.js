@@ -2,6 +2,6 @@
 
 // CoffeScript CLI shim
 if (require.main === module){
-  require('coffee-script').register();
+  require('coffeescript').register();
   require('./ansir-cli.coffee');
 }

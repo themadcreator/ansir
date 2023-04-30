@@ -31,7 +31,7 @@
   "dependencies": {
     "bluebird": ">=2.x.x",
     "chroma-js": ">=1.x.x",
-    "coffee-script": ">=1.x.x",
+    "coffeescript": ">=1.x.x",
     "commander": ">=2.x.x",
     "lodash": ">=3.x.x",
     "pngjs": ">=0.4.x"
