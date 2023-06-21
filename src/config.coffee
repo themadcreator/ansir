@@ -32,4 +32,4 @@ configure = (options) ->
     write
   }
 
-module.exports =configure
+module.exports = configure
